@@ -16,7 +16,7 @@ class Location(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('', args=[self.slug])
+        return reverse('wena:photo_list_by_location', args=[self.slug])
 
 
 class Photo(models.Model):
@@ -37,4 +37,4 @@ class Photo(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('', args=[self.id, self.slug])
+        return reverse('wena:photo_detail', args=[self.id, self.slug])

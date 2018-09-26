@@ -1,0 +1,17 @@
+{% extends "wena/base.html" %}
+{% load static %}
+
+{% block title %}
+  {{ photo.name }}
+{% endblock %}
+
+{% block content %}
+  <div class="product-detail">
+    <img src="{% if photo.image %}{{ photo.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+    <h1>{{ photo.name }}</h1>
+    <h2><a href="{{ photo.location.get_absolute_url }}">{{ photo.category }}</a></h2>
+    <p class="price">${{ product.price }}</p>
+
+    {{ photo.description|linebreaks }}
+  </div>
+{% endblock %}

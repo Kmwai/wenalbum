@@ -1,0 +1,34 @@
+{% extends "wena/base.html" %}
+{% load static %}
+
+{% block title %}
+  {% if category %}{{ category.name }}{% else %}Products{% endif %}
+{% endblock %}
+
+{% block content %}
+  <div id="sidebar">
+    <h3>Locations</h3>
+    <ul>
+      <li {% if not location %}class="selected"{% endif %}>
+        <a href="{% url "wena:photo_list" %}">All</a>
+      </li>
+      {% for c in locations %}
+        <li {% if locatioin.slug == c.slug %}class="selected"{% endif %}>
+          <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div id="main" class="product-list">
+    <h1>{% if location %}{{ location.name }}{% else %}Photos{% endif %}</h1>
+    {% for photo in photos %}
+      <div class="item">
+        <a href="{{ photo.get_absolute_url }}">
+          <img src="{% if photo.image %}{{ photo.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+        </a>
+        <a href="{{ photo.get_absolute_url }}">{{ photo.name }}</a>
+
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
