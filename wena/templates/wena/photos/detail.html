@@ -6,11 +6,11 @@
 {% endblock %}
 
 {% block content %}
-  <div class="product-detail">
+  <div class="photo-detail">
     <img src="{% if photo.image %}{{ photo.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
     <h1>{{ photo.name }}</h1>
-    <h2><a href="{{ photo.location.get_absolute_url }}">{{ photo.category }}</a></h2>
-    <p class="price">${{ product.price }}</p>
+    <h2><a href="{{ photo.location.get_absolute_url }}">{{ photo.location }}</a></h2>
+
 
     {{ photo.description|linebreaks }}
   </div>
