@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '85@-(us8wzphp7%j8sb)av4-xbifai
 # DEBUG = True
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['wenalbum.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
